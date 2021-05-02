@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import App from './components/App.jsx';
 
-function App() {
-  return <div className="App">no more hello worlds please</div>;
-}
+import './index.css';
 
 ReactDOM.render(<App />, document.getElementById('root'));
