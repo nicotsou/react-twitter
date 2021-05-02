@@ -1,3 +1,4 @@
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import Avatar from './Avatar';
 import './Tweet.css';
@@ -11,7 +12,9 @@ function Tweet(props) {
       <div>
         <div className="tweet-header">
           <span className="tweet-user">@{user}</span>·
-          <span className="tweet-created-on">{createdOn}</span>
+          <span className="tweet-created-on">
+            {moment(createdOn).fromNow()}
+          </span>
         </div>
         <div className="tweet-content">{children}</div>
       </div>
