@@ -1,4 +1,10 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  background: black;
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
 }
