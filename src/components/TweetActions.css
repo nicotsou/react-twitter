@@ -1,0 +1,22 @@
+.tweet-actions {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+.tweet-actions-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: 0;
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.tweet-actions-button svg {
+  margin-right: 5px;
+}
