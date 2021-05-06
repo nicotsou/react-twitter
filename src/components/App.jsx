@@ -11,6 +11,7 @@ const CURRENT_USER = 'nicotsou';
 
 function App() {
   const [tweets, setTweets] = useState(initialTweets);
+  const [favorites, setFavorites] = useState([]);
 
   const handlePostTweet = (content) => {
     const newTweet = {
@@ -25,12 +26,29 @@ function App() {
     setTweets([...tweets, newTweet]);
   };
 
+  const handleToggleFavorite = (tweetId) => {
+    const foundIndex = favorites.indexOf(tweetId);
+
+    if (foundIndex > -1) {
+      // Found, return a new array without this id
+      setFavorites(favorites.filter((favoriteId) => favoriteId !== tweetId));
+    } else {
+      // Not found in favorites, return a new array including this id
+      setFavorites([...favorites, tweetId]);
+    }
+  };
+
   return (
     <div className="app">
       <FaTwitter className="app-logo" size="2em" />
       <ComposeForm onSubmit={handlePostTweet} />
       <div className="separator"></div>
-      <Timeline tweets={tweets} onRetweet={handlePostTweet} />
+      <Timeline
+        tweets={tweets}
+        onRetweet={handlePostTweet}
+        favorites={favorites}
+        onToggleFavorite={handleToggleFavorite}
+      />
     </div>
   );
 }
