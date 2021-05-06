@@ -30,7 +30,7 @@ function App() {
       <FaTwitter className="app-logo" size="2em" />
       <ComposeForm onSubmit={handlePostTweet} />
       <div className="separator"></div>
-      <Timeline tweets={tweets} />
+      <Timeline tweets={tweets} onRetweet={handlePostTweet} />
     </div>
   );
 }

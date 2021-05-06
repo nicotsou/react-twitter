@@ -3,10 +3,14 @@ import copy from 'copy-to-clipboard';
 import { FaComment, FaHeart, FaRetweet, FaShare } from 'react-icons/fa';
 import './TweetActions.css';
 
-function TweetActions({ user, content, counters }) {
+function TweetActions({ user, content, counters, onRetweet }) {
   const handleShareButtonClick = () => {
     // You have to npm install copy-to-clipboard
     copy(`@${user}: "${content}"`);
+  };
+
+  const handleRetweetButtonClick = () => {
+    onRetweet(`Retweeted from @${user}: "${content}"`);
   };
 
   return (
@@ -17,7 +21,11 @@ function TweetActions({ user, content, counters }) {
         </button>
       </li>
       <li>
-        <button type="button" className="tweet-actions-button">
+        <button
+          type="button"
+          className="tweet-actions-button"
+          onClick={handleRetweetButtonClick}
+        >
           <FaRetweet size="25" /> {counters.retweets}
         </button>
       </li>
@@ -47,6 +55,7 @@ TweetActions.propTypes = {
     retweets: PropTypes.number,
     favorites: PropTypes.number,
   }),
+  onRetweet: PropTypes.func.isRequired,
 };
 
 export default TweetActions;

@@ -3,7 +3,7 @@ import Tweet from './Tweet.jsx';
 import './Timeline.css';
 import TweetActions from './TweetActions.jsx';
 
-function Timeline({ tweets }) {
+function Timeline({ tweets, onRetweet }) {
   return (
     <ul className="timeline">
       {tweets
@@ -30,6 +30,7 @@ function Timeline({ tweets }) {
                   retweets: retweets_count,
                   favorites: favorites_count,
                 }}
+                onRetweet={onRetweet}
               />
             </li>
           )
@@ -40,6 +41,7 @@ function Timeline({ tweets }) {
 
 Timeline.propTypes = {
   tweets: PropTypes.array,
+  onRetweet: PropTypes.func.isRequired,
 };
 
 export default Timeline;
