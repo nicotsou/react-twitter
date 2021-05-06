@@ -23,6 +23,8 @@ function Timeline({ tweets }) {
                 {content}
               </Tweet>
               <TweetActions
+                user={user}
+                content={content}
                 counters={{
                   comments: comments_count,
                   retweets: retweets_count,
