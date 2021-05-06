@@ -18,7 +18,6 @@ function Timeline({ tweets, favorites, onRetweet, onToggleFavorite }) {
             retweets_count,
             favorites_count,
           }) => {
-            console.log(favorites);
             const isFavorite = favorites.includes(id);
 
             return (
